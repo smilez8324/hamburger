@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'categories.dart';
 import 'header.dart';
 
 void main() {
@@ -42,6 +44,7 @@ class _HamburgerState extends State<Hamburger> {
             ],
           ),
           Header(),
+          Categories(),
           SliverList(
             delegate: SliverChildListDelegate(
               [
