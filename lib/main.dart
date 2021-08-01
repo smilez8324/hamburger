@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'categories.dart';
 import 'header.dart';
+import 'hamburgers_list.dart';
+import 'burger_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,12 +13,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+          primaryColor: Colors.teal,
+          cardColor: Colors.white,
           appBarTheme: AppBarTheme(color: Colors.teal, centerTitle: true),
           bottomAppBarColor: Colors.teal,
           floatingActionButtonTheme: FloatingActionButtonThemeData(
             backgroundColor: Colors.orange,
           )),
       home: Hamburger(),
+      routes: {BurgerPage.tag: (_) => BurgerPage()},
       debugShowCheckedModeBanner: false,
     );
   }
@@ -44,16 +49,8 @@ class _HamburgerState extends State<Hamburger> {
           ),
           Header(),
           Categories(),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                Text(
-                  "Hamburger",
-                  style: TextStyle(fontSize: 300),
-                ),
-              ],
-            ),
-          )
+          HamburgersList(row: 1),
+          HamburgersList(row: 2),
         ],
       ),
       extendBody: true,
